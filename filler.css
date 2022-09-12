@@ -17,19 +17,12 @@ body{
     place-items: center;
 }
 
-.score{
+.scoreboard{
     display: flex;
+    margin: 10em 0em 1em 0em;
     flex-wrap: wrap;
     padding: 10px;
     border: 1px solid black;
-}
-
-#board{
-    display: flex;
-    flex-wrap: wrap;
-    height: 350px;
-    width: 400px;
-    /* border: 1px grey solid; */
 }
 
 .game-board{ 
@@ -46,4 +39,19 @@ body{
 
 .color{
     padding: 10px 10px;
+}
+#red{
+    background-color: red;
+}
+#green{
+    background-color: green;
+}
+#yellow{
+    background-color: yellow;
+}
+#blue{
+    background-color: blue;
+}
+#purple{
+    background-color: purple;
 }
