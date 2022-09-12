@@ -5,19 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="filler.css"></a>
-<title>Document</title>
+<title>Filler Game</title>
 </head>
 <body>
-    <div id="board">
+    <div class="game-data" id="gamepage">
+        <div class="score">
+            <div class="score" id="Player-One">
+                <p>YOU</p>      
+            </div>
+            <div class="score" id="Player-Two">
+                <p>OPPONENT</p>
+            </div>
+        </div>
+        <div id="board">
+        </div>
+        <div class="color" id="tile-color">
+            <button class="color" id="red">red</button>
+            <button class="color" id="green">green</button>
+            <button class="color" id="yellow">yellow</button>
+            <button class="color" id="blue">blue</button>
+            <button class="color" id="purple">purple</button>
+            <button class="color" id="black">black</button>
+        </div>
     </div>
-    <div class="color-selector">
-        <button class="red">red</button>
-        <button class="green">green</button>
-        <button class="yellow">yellow</button>
-        <button class="blue">blue</button>
-        <button class="purple">purple</button>
-        <button class="black">black</button>
-    </div>
-    <script src="filler.js"></script>
+    
+    <!-- <script src="filler.js"></script> -->
 </body>
 </html>

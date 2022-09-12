@@ -1,7 +1,6 @@
-* {
-    
+*{    
     box-sizing: border-box;
-    padding: o;
+    padding: 0;
     margin: 0;
 }
 
@@ -10,7 +9,19 @@ body{
     height: 100%vh;
     justify-content: center;
     align-items: center;
-    background-color: lightgray;
+    background-color: rgb(195,195,195);
+}
+
+.game-data{
+    display: grid;
+    place-items: center;
+}
+
+.score{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border: 1px solid black;
 }
 
 #board{
@@ -18,12 +29,21 @@ body{
     flex-wrap: wrap;
     height: 350px;
     width: 400px;
-    border: 1px grey solid;
+    /* border: 1px grey solid; */
 }
 
-.color-selector {
+.game-board{ 
     display: grid;
-    place-items: center;
+    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px; 
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
+.tile{
+    border: 1px solid black;
+}
 
+.color{
+    padding: 10px 10px;
+}
