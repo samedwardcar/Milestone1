@@ -37,21 +37,31 @@ body{
     border: 1px solid black;
 }
 
-.color{
-    padding: 10px 10px;
-}
+
 #red{
+    color: red;
     background-color: red;
 }
 #green{
+    color: green;
     background-color: green;
 }
 #yellow{
+    color: yellow;
     background-color: yellow;
 }
 #blue{
+    color: blue;
     background-color: blue;
 }
 #purple{
+    color: purple;
     background-color: purple;
+}
+#black{
+    color: black;
+    background-color: black;
+}
+.color{
+    padding: 10px 10px;
 }
