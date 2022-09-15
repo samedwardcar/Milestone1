@@ -4,14 +4,16 @@ let cells = document.querySelectorAll(".cell");
 // const restartBtn = document.querySelector("#restartBtn");
 //fillerCodePartI:colorBtn
 Array.from(cells);
-const redButton = document.getElementById('#red');
-redButton.addEventListener("click")
-const greenButton = document.getElementById('#green');
-const yellowButton = document.getElementById('#yellow');
-const blueButton = document.getElementById('#blue');
-const purpleButton = document.getElementById('#purple');
-const blackButton = document.getElementById('#black');
 const sixColors = ["red", "green", "yellow", "blue", "purple", "black"];
+
+const redBtn = document.getElementById('#red');
+const greenBtn = document.getElementById('#green');
+const yellowBtn = document.getElementById('#yellow');
+const blueBtn = document.getElementById('#blue');
+const purpleBtn = document.getElementById('#purple');
+const blackBtn = document.getElementById('#black');
+
+colorButtons = ["redBtn, greenBtn, yellowBtn, blueBtn, purpleBtn, blackBtn"];
 /*work on if time permits:
 
 const fiveColors = sixColors.slice(0);
@@ -94,34 +96,36 @@ function cellClicked(){
     updateCell(this, cellIndex);
     checkWinner();
 }
-function updateCell(cell, index){
+function updateCell(cell, index, selectColor){
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
 }
 /* Start on Tile Color selection */
 function selectColor(){
-    if (redButton =()=> redButton.addEventListener("click")){
+    if (redBtn => redBtn.addEventListener("click")){
         this.style.backGroundColor = sixColors[0];     
-    }; elseif(greenButton.addEventListener("click"));{
+    }; elseif (greenBtn => greenBtn.addEventListener("click"));{
         this.style.backGroundColor = sixColors[1];
-    }; elseif(yellowButton.addEventListener("click"));{
+    }; elseif (yellowBtn => yellowBtn.addEventListener("click"));{
         this.style.backGroundColor = sixColors[2];
-    }; elseif(blueButton.addEventListener("click"));{
+    }; elseif (blueBtn => blueBtn.addEventListener("click"));{
         this.style.backGroundColor = sixColors[3];
-    }; elseif(purpleButton.addEventListener("click"));{
+    }; elseif (purpleButton.addEventListener("click"));{
         this.style.backGroundColor = sixColors[4];
-    }; elseif(blackButton.addEventListener("click"));{
+    }; elseif (blackBtn => blackBtn.addEventListener("click"));{
         this.style.backGroundColor = sixColors[5];
-    }; else {
-        alert("`${currentPlayer} Please select a color first.`");    
+    }; if (condition) {
+        // .	
+    } else {
+        statusText.textContent = `${currentPlayer} Please select a color first.`;    
     };
     return;
-}
+};
 /* End of Tile Color selection*/
 function changePlayer(){
     currentPlayer = (currentPlayer == "P1") ? "P2" : "P1";
     statusText.textContent = `${currentPlayer}'s turn`;
-}
+};
 function checkWinner(){
     let roundWon = false;
 
