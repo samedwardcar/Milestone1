@@ -10,7 +10,11 @@ const yellowButton = document.getElementById('#yellow');
 const blueButton = document.getElementById('#blue');
 const purpleButton = document.getElementById('#purple');
 const blackButton = document.getElementById('#black');
-const colors = ["red", "green", "yellow", "blue", "purple", "black"];
+const sixColors = ["red", "green", "yellow", "blue", "purple", "black"];
+/*work on if time permits:
+
+const fiveColors = sixColors.slice(0);
+const fourColors = fiveColors.slice(0);*/
 
 // ticCodePartII:winStatement
 
@@ -24,14 +28,45 @@ const winConditions = [
     [0, 4, 8],
     [2, 4, 6],
 ];
+
+const fillerConditions = [
+    [],
+    [],
+]
+
 let options = ["", "", "", "", "", "", "", "",""]
-let currentPlayer = "SC";
+let currentPlayer = "P1";
 let running =true;
 
-
 // ticCodePartIII:Functions
-initializeGame();
+
 setTileColor()
+function setTileColor(){
+    for(i = 0; i < cells.length; i++){
+        cells[i].style.backgroundColor = sixColors[Math.floor(Math.random() * sixColors.length)];
+    };
+    return;
+};
+
+// function adjacentTiles(){
+//     if(cells[6].style.backgroundColor === cells[3].style.backgroundColor){
+//         console.log("cells[6].style.backgroundColor");
+//     }; 
+// };
+// function changingAdjColorTiles(){
+//     if(cells[6].style.backgroundColor === cells[3].style.backgroundColor){
+//         for (let j = colors.length - 1; j > 0; j--) {
+//             const k = Math.floor(Math.random() * (i + 1));
+//             [array[j], array[k]] = [array[k], array[j]];
+//             cell[3].style.backgroundColor = 
+//         };
+//     };
+    
+//     else (cells[6].style.backgroundColor != cells[3].style.backgroundColor && cells[6].style.backgroundColor != cells[7].style.backgroundColor){
+//         // 
+//     };
+// }; 
+initializeGame();
 
 function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
@@ -62,8 +97,13 @@ function updateCell(cell, index){
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
 }
+/* Start on Tile Color selection */
+function selectColor(){
+    if(redButton.eaddEventListener("click", cellClicked)){}
+}
+/* End of Tile Color selection*/
 function changePlayer(){
-    currentPlayer = (currentPlayer == "SC") ? "EC" : "SC";
+    currentPlayer = (currentPlayer == "P1") ? "P2" : "P1";
     statusText.textContent = `${currentPlayer}'s turn`;
 }
 function checkWinner(){
@@ -94,27 +134,16 @@ function checkWinner(){
     }
     else{
         changePlayer();
-    }
-}
+    };
+};
 function restartGame(){
-    currentPlayer = "SC";
+    currentPlayer = currentPlayer;
     options = ["", "", "", "", "", "", "", "", ""];
     statusText.textContent = `${currentPlayer}'s turn`;
     cells.forEach(cell => cell.textContent = "");
+    setTileColor();
     running = true;
-}
-
-function setTileColor(){
-    for(i = 0; i < cells.length; i++){
-        cells[i].style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        
-        if(cells[6].style.backgroundColor === cells[6].style.backgroundColor){
-            // 
-        }
-
-        else(){
-            // 
-        };    
-    }
-    return
 };
+
+
+
