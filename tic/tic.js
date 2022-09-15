@@ -5,6 +5,7 @@ let cells = document.querySelectorAll(".cell");
 //fillerCodePartI:colorBtn
 Array.from(cells);
 const redButton = document.getElementById('#red');
+redButton.addEventListener("click")
 const greenButton = document.getElementById('#green');
 const yellowButton = document.getElementById('#yellow');
 const blueButton = document.getElementById('#blue');
@@ -99,7 +100,22 @@ function updateCell(cell, index){
 }
 /* Start on Tile Color selection */
 function selectColor(){
-    if(redButton.eaddEventListener("click", cellClicked)){}
+    if (redButton =()=> redButton.addEventListener("click")){
+        this.style.backGroundColor = sixColors[0];     
+    }; elseif(greenButton.addEventListener("click"));{
+        this.style.backGroundColor = sixColors[1];
+    }; elseif(yellowButton.addEventListener("click"));{
+        this.style.backGroundColor = sixColors[2];
+    }; elseif(blueButton.addEventListener("click"));{
+        this.style.backGroundColor = sixColors[3];
+    }; elseif(purpleButton.addEventListener("click"));{
+        this.style.backGroundColor = sixColors[4];
+    }; elseif(blackButton.addEventListener("click"));{
+        this.style.backGroundColor = sixColors[5];
+    }; else {
+        alert("`${currentPlayer} Please select a color first.`");    
+    };
+    return;
 }
 /* End of Tile Color selection*/
 function changePlayer(){
