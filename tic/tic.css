@@ -1,0 +1,76 @@
+body{
+    display: grid;
+    place-items: center;
+    background-color: seagreen;
+}
+.cell{
+    width: 75px;
+    height: 75px;
+    border: 2px solid whitesmoke;
+    box-shadow: 0 0 0 2px;
+    line-height: 75px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+#gameContainer{
+    font-family: cursive;
+    text-align: center;
+    color: lightgray;
+}
+
+#cellContainer{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    /* grid-template-rows: repeat(3, auto); */
+    width: 225px;
+    margin: auto;
+
+}
+
+#red{
+    color: red;
+    background-color: red;
+    cursor: pointer;
+}
+
+#green{
+    color: green;
+    background-color: green;
+    cursor: pointer;
+}
+
+#yellow{
+    color: yellow;
+    background-color: yellow;
+    cursor: pointer;
+}
+
+#blue{
+    color: blue;
+    background-color: blue;
+    cursor: pointer;
+}
+
+#purple{
+    color: purple;
+    background-color: purple;
+    cursor: pointer;
+}
+
+#black{
+    color: black;
+    background-color: black;
+    cursor: pointer;
+}
+
+.color{
+    padding: 10px 10px;
+}
+
+#restartBtn{
+    margin: 20px;
+    padding: 20px ;
+    border-radius: 25px;
+
+}
