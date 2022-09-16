@@ -1,11 +1,11 @@
-const redButton = document.getElementById('#red');
-const greenButton = document.getElementById('#green');
-const yellowButton = document.getElementById('#yellow');
-const blueButton = document.getElementById('#blue');
-const purpleButton = document.getElementById('#purple');
-const blackButton = document.getElementById('#black');
+let redButton = document.getElementById('#red');
+let greenButton = document.getElementById('#green');
+let yellowButton = document.getElementById('#yellow');
+let blueButton = document.getElementById('#blue');
+let purpleButton = document.getElementById('#purple');
+let blackButton = document.getElementById('#black');
 
-const colors = ["red", "green", "yellow", "blue", "purple", "black"];
+let colors = ["red", "green", "yellow", "blue", "purple", "black"];
 var gameBoard = document.querySelectorAll('.tile');
 Array.from(gameBoard);
 /*this is what I was missing from before. DON'T second guess yourself!*/
@@ -17,7 +17,9 @@ function setBoard(){
         gameBoard[i].style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
     };
     return
-}
+};
+
+
 
 
 
