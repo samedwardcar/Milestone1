@@ -13,54 +13,55 @@ body{
     cursor: pointer;
 }
 
+#cellContainer{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    /* grid-template-rows: repeat(3, auto); */
+    width: 300px;
+    margin: auto;
+}
+
 #gameContainer{
+    display: grid;
+    place-content: center;
     font-family: cursive;
     text-align: center;
     color: lightgray;
 }
 
-#cellContainer{
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    /* grid-template-rows: repeat(3, auto); */
-    width: 225px;
-    margin: auto;
-
-}
-
-#red{
+#redBtn{
     color: red;
     background-color: red;
     cursor: pointer;
 }
 
-#green{
+#greenBtn{
     color: green;
     background-color: green;
     cursor: pointer;
 }
 
-#yellow{
+#yellowBtn{
     color: yellow;
     background-color: yellow;
     cursor: pointer;
 }
 
-#blue{
+#blueBtn{
     color: blue;
     background-color: blue;
     cursor: pointer;
 }
 
-#purple{
+#purpleBtn{
     color: purple;
     background-color: purple;
     cursor: pointer;
 }
 
-#black{
-    color: black;
-    background-color: black;
+#orangeBtn{
+    color: orange;
+    background-color: orange;
     cursor: pointer;
 }
 
