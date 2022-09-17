@@ -10,3 +10,7 @@ got stuck on the basic principle of the selecting arrays which help me up a litt
 Keep getting stuck with finding a selection g adjacent colors so after review on line goint to adjust approach. Think in the end I'm going to turn this in to a triGameAthon  with TIC, Filler, and then something else. for now:
 
 FILLER
+
+
+
+Used a Tic Tac Toe came as the base code for my game.
