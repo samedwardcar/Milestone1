@@ -1,7 +1,7 @@
 sixColors = ["red", "green", "yellow", "blue", "purple", "black"];
-let colorBtns = document.querySelectorAll(".color");
+const colorBtns = Array.from(document.querySelectorAll(".color"));
 
-Array.from(colorBtns);
+
 
 boardHeight = 7;
 boardWidth = 8;
@@ -13,20 +13,37 @@ const winConditions = [
   
 ]*/
 
-let playerOnesTile = [];
-let playerTwosTiles = [];
+let playerOneTiles = [48];
+var squareNumber = playerOneTiles;
+let playerTwosTiles = [7];
 let currentPlayer = "Player One";
-let lastBtnColor = `${this.color}`;
-let running = false;
+let playerOneColor
+let playerTwoColor
+let playerOneScore
+let playerTwoScore
 
-initializeBoard();
 renderBoard();
+enableButtons();
+startGame();
 updateBoard();
 
-function initializeBoard() {
+function startGame() {
   for (idx = 0; idx < board.length; idx++) {
-    board[idx] = sixColors[Math.floor(Math.random() * sixColors.length)];
+    colors = getAdjacentColors(idx)
+    let color
+    if(idx === 48){
+      colors.push(board[7])
+    }    
+    do{
+      color = sixColors[Math.floor(Math.random() * sixColors.length)]
+    } while(colors.includes(color))
+    board[idx] = color;
   }
+  playerOneColor = board[48];
+  playerOneColor = board[7];
+  playOneScore = 0;
+  playerTwoScore = 0;
+  
 }
 
 function renderBoard() {
@@ -47,14 +64,68 @@ function updateBoard() {
     cell.style.backgroundColor = board[idx];
   }
 }
-// 
+
+function enableButtons(){
+  colorBtns.forEach(color => color.addEventListener('click', colorSelectionHandler));
+  
+}
+
+function colorSelectionHandler(e) {
+  // toDo selectCurrentPlayer
+  
+  
+  const color = e.target.id.replace("Btn","")
+  adjacentOfColor = getAdjacentOfClaimedByColor(playerOneTiles/*${currentPlayer}*/, color)
+  if(adjacentOfColor.length){
+    for(tile of playerOneTiles){
+      board[tile] = color
+    }
+    playerOneTiles = playerOneTiles.concat(adjacentOfColor)
+  }
+  score1 = playerOneTiles.length-1;
+  
+  updateBoard();
+  switchPlayer();
+  /*
+  setNewPlayercolor = ${currentColor}
+  */
+}
+
+function selectCurrentPlayer() {
+    currentPlayer = (currentPlayer == "playerOne") ? "playerTwo" : "playerOne";
+    statusText.textContent = `${currentPlayer}'s turn!`;
+  };
 
 /*get adjacent*/
 function getAdjacentColors(squareNumber) {
-  []
-  return [];
+  const adjacentColors = [];
+  const adjacents = getAdjacents(squareNumber);
+  for(adjacent of adjacents){
+    const color = board[adjacent]
+    if(!adjacentColors.includes(color)){
+      adjacentColors.push(color);
+    }
+  }
+  
+  return adjacentColors;
 }
 
+function getAdjacentOfClaimedByColor(claimed,color){
+  const stuff = [];
+  for(c of claimed){
+    adj = getAdjacents(c);
+    for(a of adj){
+      if(board[a] === color && !stuff.includes(c)){
+        stuff.push(a)
+      }
+    }
+  }
+  return stuff
+}
+
+
+
+  
 function squareNumberToCoordinates(squareNumber) {
   return [(squareNumber % boardWidth), Math.floor(squareNumber / boardWidth)]
 }
@@ -66,6 +137,7 @@ function coordinatesToSquareNumber(coordinates) {
 function getAdjacents(squareNumber) {
   adjacents = []
   coordinates = squareNumberToCoordinates(squareNumber);
+  
 
   // Left
   if (coordinates[0] > 0) {
@@ -80,7 +152,7 @@ function getAdjacents(squareNumber) {
   // Top
   if (coordinates[1] > 0) {
     adjacents.push(coordinatesToSquareNumber([coordinates[0], coordinates[1] - 1]));
-  }
+  }selectedColor.textContent = `Red, Green, Yellow, Blue, Purple, Black`;
 
   // Bottom
   if (coordinates[1] < boardHeight - 1) {
@@ -89,14 +161,21 @@ function getAdjacents(squareNumber) {
 
   return adjacents;
 }
+
+
+
+
+
+
+
 /*End adjcent*/
 
-function intializeGame(){
-  colorBtns.forEach(color => color.addEventListener("clicked", colorBtnClicked));
-  restartBtn.addEventListener("dblclick", restartGame);
-  statusText.textContent = `${currentPlayer}'s Turn:`;
-  playerColor.textContent = `Color is Now: ${currentColor}`;
-}
+// function intializeGame(){
+//   colorBtns.forEach(color => color.addEventListener("clicked", colorBtnClicked));
+//   restartBtn.addEventListener("dblclick", restartGame);
+//   statusText.textContent = `${currentPlayer}'s Turn:`;
+//   playerColor.textContent = `Color is Now: ${currentColor}`;
+// }
 
 /*playeraction/responses*/
 
@@ -130,39 +209,7 @@ function changePlayer() {
   selectedColor.text.Content = `Unavailbe Colors Are: ${currentColor}, ${this.color}`;
 };
 
-/*Better Method
-function checkWinner() {
-  let roundWon = false;
 
-  for (let i = 0; i < winConditions.length; i++) {
-    const condition = winConditions[i];
-    const cellA = options[condition[0]];
-    const cellB = options[condition[1]];
-    const cellC = options[condition[2]];
-
-    if (cellA == "" || cellB == "" || cellC == "") {
-      continue;
-    }
-    if (cellA == cellB && cellB == cellC) {
-      roundWon = true;
-      break;
-    }
-  }
-
-  if (roundWon) {
-    statusText.textContent = `${currentPlayer} wins!`;
-    selectedColor.text.Content = `Color is: ${currentColor}`;
-    running = false;
-  }
-  else if (!options.includes("")) {
-    statusText.textContent = `Draw!`;
-    selectedColor.text.Content = `Color is: ${currentColor}`;
-    running = false;
-  }
-  else {
-    changePlayer();
-  };
-*/
 
 function restartGame() {
   // currentPlayer = "currentPlayer";
@@ -172,4 +219,7 @@ function restartGame() {
   cells.forEach(cell => cell.textContent = "");
   running = true;
 };
+
+
+score = playerOneTiles
 /*player actions end*/

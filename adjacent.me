@@ -1,0 +1,70 @@
+sixColors = ["red", "green", "yellow", "blue", "purple", "black"];
+
+boardHeight = 7;
+boardWidth = 8;
+
+board = new Array(boardHeight * boardWidth)
+
+initializeBoard();
+renderBoard();
+updateBoard();
+
+function initializeBoard() {
+  for (idx = 0; idx < board.length; idx++) {
+    board[idx] = sixColors[Math.floor(Math.random() * sixColors.length)];
+  }
+}
+
+function renderBoard() {
+  cellContainer = document.getElementById("cellContainer");
+  for (idx = 0; idx < board.length; idx++) {
+    cell = document.createElement("div");
+    cell.setAttribute("id", "cell" + idx);
+    cell.setAttribute("class", "cell");
+    cell.setAttribute("cellIndex", idx);
+    cell.innerHTML = idx + 1; // $emove + 1 to display cell number
+    cellContainer.appendChild(cell);
+  }
+}
+
+function updateBoard() {
+  for (idx = 0; idx < board.length; idx++) {
+    cell = document.getElementById("cell" + idx);
+    cell.style.backgroundColor = board[idx];
+  }
+}
+
+function squareNumberToCoordinates(squareNumber) {
+  return [(squareNumber % boardWidth), Math.floor(squareNumber / boardWidth)]
+}
+
+function coordinatesToSquareNumber(coordinates) {
+  return boardWidth * coordinates[1] + coordinates[0];
+}
+
+function getAdjacents(squareNumber) {
+  adjacents = []
+  coordinates = squareNumberToCoordinates(squareNumber)
+
+  // Left
+  if (coordinates[0] > 0) {
+    adjacents.push(coordinatesToSquareNumber([coordinates[0] - 1, coordinates[1]]));
+  }
+
+  // Right
+  if (coordinates[0] < boardWidth - 1) {
+    adjacents.push(coordinatesToSquareNumber([coordinates[0] + 1, coordinates[1]]));
+  }
+
+  // Top
+  if (coordinates[1] > 0) {
+    adjacents.push(coordinatesToSquareNumber([coordinates[0], coordinates[1] - 1]));
+  }
+
+  // Bottom
+  if (coordinates[1] < boardHeight - 1) {
+    adjacents.push(coordinatesToSquareNumber([coordinates[0], coordinates[1] + 1]))
+  }
+
+  return adjacents;
+}
