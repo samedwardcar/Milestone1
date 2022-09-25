@@ -82,7 +82,8 @@ function colorSelectionHandler(e) {
     }
     playerOneTiles = playerOneTiles.concat(adjacentOfColor)
   }
-  score1 = playerOneTiles.length-1;
+  playerOneTileCount.textContext = `${playerOneTiles.length-1}`;
+  playerTwoTileCount.textContext = `${playerTwosTiles.length-1}`;
   
   updateBoard();
   switchPlayer();
@@ -161,53 +162,8 @@ function getAdjacents(squareNumber) {
 
   return adjacents;
 }
-
-
-
-
-
-
-
 /*End adjcent*/
 
-// function intializeGame(){
-//   colorBtns.forEach(color => color.addEventListener("clicked", colorBtnClicked));
-//   restartBtn.addEventListener("dblclick", restartGame);
-//   statusText.textContent = `${currentPlayer}'s Turn:`;
-//   playerColor.textContent = `Color is Now: ${currentColor}`;
-// }
-
-/*playeraction/responses*/
-
-
-/*function colorBtnClicked() {
-  const  = this.getAttribute("");
-  if (options[] != "" || !running) {
-    return;
-  }
-}
-
-function colorBtnClicked() {
-  let = this.getAttribute("");
-
-  if (options[] != "" || !running) {
-    return;
-  }
-
-  updateCell(this,);
-  checkWinner();
-}
-
-function updateCell(, ,) {
-  options[index] = currentPlayer;
-  cell.textContent = currentPlayer;
-}*/
-
-function changePlayer() {
-  currentPlayer = (currentPlayer == "Player One") ? "Player Two" : "Player One";
-  statusText.textContent = `${currentPlayer}'s turn`;
-  selectedColor.text.Content = `Unavailbe Colors Are: ${currentColor}, ${this.color}`;
-};
 
 
 
